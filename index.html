@@ -1,0 +1,16 @@
+<html>
+<body>
+<h1> SSE Demo</h1>
+ <div id="message"></div>
+<script>
+  const evtSource = new EventSource('/events');
+
+  evtSource.addEventListener('event', function (evt) {
+    const data = JSON.parse(evt.data);
+    console.log({data});
+    document.getElementById('message').innerHTML = data.message;
+  }, false);
+</script>
+</body>
+
+</html>
