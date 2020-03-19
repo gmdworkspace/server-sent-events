@@ -4,7 +4,7 @@
 `npm i`
 
 #### Start application
-`node app.js`
+`npm start`
 
 #### Test application
 
