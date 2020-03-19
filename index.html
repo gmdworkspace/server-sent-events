@@ -1,14 +1,17 @@
 <html>
 <body>
 <h1> SSE Demo</h1>
- <div id="message"></div>
+<ul id="message"></ul>
 <script>
   const evtSource = new EventSource('/events');
 
   evtSource.addEventListener('event', function (evt) {
     const data = JSON.parse(evt.data);
     console.log({data});
-    document.getElementById('message').innerHTML = data.message;
+    const node = document.createElement("li");
+    const textnode = document.createTextNode(data.message);
+    node.appendChild(textnode);
+    document.getElementById("message").appendChild(node);
   }, false);
 </script>
 </body>
